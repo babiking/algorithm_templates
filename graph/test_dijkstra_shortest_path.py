@@ -12,8 +12,6 @@ def convert_adjacents_to_distances(adjacents, n, directed=True):
 
         if not directed:
             distances[int(j)][int(i)] = d
-    
-    
     return distances
 
 
@@ -90,7 +88,7 @@ def test_dijkstra_shortest_path():
     traverse = dijkstra_by_traverse(adjacents, n, k)
     assert [x == pytest.approx(y, 1e-6) for x, y in zip(traverse, ground)], \
         'shortest distances mismatch between dijkstra (traverse) and groundtruth!'
-    
+
     heap_sort = dijkstra_by_heap_sort(adjacents, n, k)
     assert [x == pytest.approx(y, 1e-6) for x, y in zip(heap_sort, ground)], \
         'shortest distances mismatch between dijkstra (heap sort) and groundtruth!'
