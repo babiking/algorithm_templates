@@ -86,11 +86,11 @@ def test_dijkstra_shortest_path():
     ground = np.array([0.0, 1.0, 1.0, 2.0, 2.0], dtype=np.float32)
 
     traverse = dijkstra_by_traverse(adjacents, n, k)
-    assert [x == pytest.approx(y, 1e-6) for x, y in zip(traverse, ground)], \
+    assert np.allclose(ground, traverse, atol=1e-6), \
         'shortest distances mismatch between dijkstra (traverse) and groundtruth!'
 
     heap_sort = dijkstra_by_heap_sort(adjacents, n, k)
-    assert [x == pytest.approx(y, 1e-6) for x, y in zip(heap_sort, ground)], \
+    assert np.allclose(ground, heap_sort, atol=1e-6), \
         'shortest distances mismatch between dijkstra (heap sort) and groundtruth!'
 
 
