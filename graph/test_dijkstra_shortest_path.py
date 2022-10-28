@@ -63,7 +63,7 @@ def dijkstra_by_heap_sort(adjacents, n, k):
                     DistanceTriplet(
                         src,
                         dst,
-                        distances[src][dst],
+                        shortest[dst],
                     ))
     return shortest
 
